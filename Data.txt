@@ -1,4 +1,4 @@
-Base CNN - two convolutional layers and two fully-connected layers:
+Base CNN - two convolutional layers and two fully-connected layers using ADAM optimizer:
 Epoch 1, Loss: 0.19976297902689974
 Epoch 2, Loss: 0.0870059259461243
 Epoch 3, Loss: 0.0664628673553852
@@ -12,4 +12,16 @@ Epoch 10, Loss: 0.028685042537843108
 Accuracy on the test set: 98.32%
 _____________________________________
 
-Attentive CNN - a self attention mechanism followed by conv. layer, followed by two fully-connected layers
+Base CNN - two convoulutional layers and two fully-connected layers using stochastic gradient descent:
+Epoch 1, Loss: 1.3451686732486876
+Epoch 2, Loss: 0.544822612821039
+Epoch 3, Loss: 0.42905582082487626
+Epoch 4, Loss: 0.3804461931400716
+Epoch 5, Loss: 0.3393139724792448
+Epoch 6, Loss: 0.31325533881243356
+Epoch 7, Loss: 0.2971710387085165
+Epoch 8, Loss: 0.27744171596062717
+Epoch 9, Loss: 0.26435536490495143
+Epoch 10, Loss: 0.25186600743818766
+Accuracy on the test set: 92.98%
+____________________________________
