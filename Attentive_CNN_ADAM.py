@@ -11,11 +11,13 @@ class MultiHeadSelfAttention(nn.Module):
         self.num_heads = num_heads
         self.head_dim = out_channels // num_heads
 
+        # Query, key, value matrices
         self.W_q = nn.Linear(in_channels, out_channels, bias=False)
         self.W_k = nn.Linear(in_channels, out_channels, bias=False)
         self.W_v = nn.Linear(in_channels, out_channels, bias=False)
         self.fc = nn.Linear(out_channels, out_channels, bias=False)
 
+    # Forward pass through attention mechanism
     def forward(self, x):
         N, C, H, W = x.size()
         x = x.view(N, C, H * W).permute(0, 2, 1)  # Reshape the input
@@ -38,15 +40,15 @@ class MultiHeadSelfAttention(nn.Module):
 
 
 
-# Define the CNN architecture
+# Model architecture definition
 class Net(nn.Module):
     def __init__(self):
         super(Net, self).__init__()
-        self.self_attention1 = MultiHeadSelfAttention(1, 32, 4)  # Replace the first convolutional layer
+        self.self_attention1 = MultiHeadSelfAttention(1, 32, 4)  # Attention block precedes convolution kernel
         self.conv2 = nn.Conv2d(32, 64, 3, 1)
         self.dropout1 = nn.Dropout2d(0.25)
         self.dropout2 = nn.Dropout2d(0.5)
-        self.fc1 = nn.Linear(10816, 128)  # Adjust the input size of the first fully connected layer
+        self.fc1 = nn.Linear(10816, 128)  
         self.fc2 = nn.Linear(128, 10)
 
     def forward(self, x):
