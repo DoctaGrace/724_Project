@@ -11,6 +11,7 @@ class MultiHeadSelfAttention(nn.Module):
         self.num_heads = num_heads
         self.head_dim = out_channels // num_heads
 
+        # Query, key, value matrices
         self.W_q = nn.Linear(in_channels, out_channels, bias=False)
         self.W_k = nn.Linear(in_channels, out_channels, bias=False)
         self.W_v = nn.Linear(in_channels, out_channels, bias=False)
@@ -37,7 +38,7 @@ class MultiHeadSelfAttention(nn.Module):
         return out
 
 
-
+# Model definitiion
 class Net(nn.Module):
     def __init__(self):
         super(Net, self).__init__()
@@ -48,9 +49,7 @@ class Net(nn.Module):
         self.fc1 = nn.Linear(18432, 256)  
         self.fc2 = nn.Linear(256, 256)
 
-
-
-    
+    # Forward pass
     def forward(self, x):
         x = self.conv1(x) 
         x = nn.functional.relu(x)
