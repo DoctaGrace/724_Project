@@ -79,7 +79,7 @@ testset = torchvision.datasets.MNIST(root='./data', train=False, download=True, 
 testloader = torch.utils.data.DataLoader(testset, batch_size=1000, shuffle=False)
 
 # Initialize the CNN
-device = torch.device("cuda")
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 net = Net().to(device)
 
 # Define loss function and optimizer
