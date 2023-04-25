@@ -42,7 +42,7 @@ class Net(nn.Module):
     def __init__(self):
         super(Net, self).__init__()
         self.conv1 = nn.Conv2d(1, 128, 4, 1) 
-        self.self_attention1 = MultiHeadSelfAttention(128, 128, 4) # Update input channels to 64
+        self.self_attention1 = MultiHeadSelfAttention(128, 128, 4) 
         self.dropout1 = nn.Dropout2d(0.25)
         self.dropout2 = nn.Dropout2d(0.5)
         self.fc1 = nn.Linear(18432, 256)  
