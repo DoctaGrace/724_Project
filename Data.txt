@@ -1,18 +1,18 @@
-Base CNN - two convolutional layers and two fully-connected layers using ADAM optimizer:
-Epoch 1, Loss: 0.19976297902689974
-Epoch 2, Loss: 0.0870059259461243
-Epoch 3, Loss: 0.0664628673553852
-Epoch 4, Loss: 0.054252841814444945
-Epoch 5, Loss: 0.04792936250102271
-Epoch 6, Loss: 0.03944571400202735
-Epoch 7, Loss: 0.03668299685846066
-Epoch 8, Loss: 0.03358434053904403
-Epoch 9, Loss: 0.029029906805811214
-Epoch 10, Loss: 0.028685042537843108
-Accuracy on the test set: 98.32%
+Two convolutional layers and two fully-connected layers using ADAM optimizer:
+Epoch 1, Loss: 0.21376291316336216
+Epoch 2, Loss: 0.09409728495012928
+Epoch 3, Loss: 0.07210778002503083
+Epoch 4, Loss: 0.06172702937033961
+Epoch 5, Loss: 0.05172708842802598
+Epoch 6, Loss: 0.044203205488038626
+Epoch 7, Loss: 0.03926212833501458
+Epoch 8, Loss: 0.037374665646919054
+Epoch 9, Loss: 0.03038031220796202
+Epoch 10, Loss: 0.03180523177885675
+Accuracy on the test set: 98.4%
 _____________________________________
 
-Base CNN - two convoulutional layers and two fully-connected layers using stochastic gradient descent:
+Two convolutional layers and two fully-connected layers using stochastic gradient descent:
 Epoch 1, Loss: 1.3451686732486876
 Epoch 2, Loss: 0.544822612821039
 Epoch 3, Loss: 0.42905582082487626
@@ -25,3 +25,44 @@ Epoch 9, Loss: 0.26435536490495143
 Epoch 10, Loss: 0.25186600743818766
 Accuracy on the test set: 92.98%
 ____________________________________
+
+Self attention mechanism with 4 attention heads followed by a convolutional layer using ADAM optimizer:
+Epoch 1, Loss: 0.38607152481513746
+Epoch 2, Loss: 0.19831325971225558
+Epoch 3, Loss: 0.15458765419831536
+Epoch 4, Loss: 0.13226844535828797
+Epoch 5, Loss: 0.11476740231667992
+Epoch 6, Loss: 0.09706578666601441
+Epoch 7, Loss: 0.09164554370777693
+Epoch 8, Loss: 0.08316456905029007
+Epoch 9, Loss: 0.07441155358564172
+Epoch 10, Loss: 0.06912438175367958
+Accuracy on the test set: 96.3%
+____________________________________
+
+Self attention mechanism with 4 attention heads followed by a convolutional layer using stochastic gradient descent:
+Epoch 1, Loss: 2.2847429643561847
+Epoch 2, Loss: 2.2366513054508137
+Epoch 3, Loss: 2.135174187007489
+Epoch 4, Loss: 1.8007608375061295
+Epoch 5, Loss: 1.1167876993033932
+Epoch 6, Loss: 0.7226692297692492
+Epoch 7, Loss: 0.5734302782809048
+Epoch 8, Loss: 0.4993414036405366
+Epoch 9, Loss: 0.4479249976495944
+Epoch 10, Loss: 0.41863815111519176
+Accuracy on the test set: 88.74%
+____________________________________
+
+Convolution kernel followed by multiheaded self attention mechanism optimized using ADAM. 
+Epoch 1, Loss: 0.21861386898138535
+Epoch 2, Loss: 0.08229966191048704
+Epoch 3, Loss: 0.0638731935513027
+Epoch 4, Loss: 0.0528003911830054
+Epoch 5, Loss: 0.04621603907990594
+Epoch 6, Loss: 0.03863891105844651
+Epoch 7, Loss: 0.033463340468938584
+Epoch 8, Loss: 0.030046120098860773
+Epoch 9, Loss: 0.030402029510760587
+Epoch 10, Loss: 0.025578587747100378
+Accuracy on the test set: 98.54%
