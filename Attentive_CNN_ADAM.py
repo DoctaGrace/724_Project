@@ -30,26 +30,27 @@ class MultiHeadSelfAttention(nn.Module):
         energy = torch.matmul(queries, keys.permute(0, 1, 3, 2))
         attention = torch.softmax(energy, dim=-1)
         out = torch.matmul(attention, values).permute(0, 2, 1, 3).contiguous()
-
-        out = out.view(N, H * W, -1).permute(0, 2, 1).view(N, C, H, W)
+        out = out.view(N, -1, self.head_dim * self.num_heads)
         out = self.fc(out)
+        out = out.view(N, 32, H, W)  # Reshape the output back to (N, C, H, W) with 32 channels
         return out
+
+
 
 # Define the CNN architecture
 class Net(nn.Module):
     def __init__(self):
         super(Net, self).__init__()
-        self.self_attention1 = MultiHeadSelfAttention(1, 32, 4)  # Update output channels
+        self.self_attention1 = MultiHeadSelfAttention(1, 32, 4)  # Replace the first convolutional layer
         self.conv2 = nn.Conv2d(32, 64, 3, 1)
         self.dropout1 = nn.Dropout2d(0.25)
         self.dropout2 = nn.Dropout2d(0.5)
-        self.fc1 = nn.Linear(9216, 128)
+        self.fc1 = nn.Linear(10816, 128)  # Adjust the input size of the first fully connected layer
         self.fc2 = nn.Linear(128, 10)
 
     def forward(self, x):
-        x = self.self_attention1(x)
+        x = self.self_attention1(x)  # Use self-attention layer instead of conv1
         x = nn.functional.relu(x)
-        x = x.view(-1, 32, 28, 28)
         x = self.conv2(x)
         x = nn.functional.relu(x)
         x = nn.functional.max_pool2d(x, 2)
@@ -61,6 +62,8 @@ class Net(nn.Module):
         x = self.fc2(x)
         output = nn.functional.log_softmax(x, dim=1)
         return output
+
+
     
 # Load MNIST dataset
 transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))])
@@ -72,7 +75,7 @@ testset = torchvision.datasets.MNIST(root='./data', train=False, download=True, 
 testloader = torch.utils.data.DataLoader(testset, batch_size=1000, shuffle=False)
 
 # Initialize the CNN
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+device = torch.device("cuda")
 net = Net().to(device)
 
 # Define loss function and optimizer
