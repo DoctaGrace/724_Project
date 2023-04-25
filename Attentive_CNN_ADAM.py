@@ -4,6 +4,7 @@ import torch.optim as optim
 import torchvision
 import torchvision.transforms as transforms
 
+# Class containing logic for multihead self attention
 class MultiHeadSelfAttention(nn.Module):
     def __init__(self, in_channels, out_channels, num_heads):
         super(MultiHeadSelfAttention, self).__init__()
