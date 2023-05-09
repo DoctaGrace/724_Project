@@ -2,7 +2,7 @@
 
 This project contains various machine learning model architectures and is meant to facilitate a comparative analysis between them using the MNIST dataset of handwritten digits.
 
-Note: the following assumes you are using the Windows operating system (version 10 or higher).
+Note: you must be using the Windows operating system (version 10 or higher).
 
 To run each individual script, ensure that all dependencies are installed onto your device:
 - Visual Studio Code
