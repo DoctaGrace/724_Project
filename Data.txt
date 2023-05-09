@@ -66,3 +66,17 @@ Epoch 8, Loss: 0.030046120098860773
 Epoch 9, Loss: 0.030402029510760587
 Epoch 10, Loss: 0.025578587747100378
 Accuracy on the test set: 98.54%
+___________________________________
+
+Convolution kernel followed by multiheaded self attention mechanism optimized using ADAM (updated batch size).
+Epoch 1, Loss: 0.556619474727471
+Epoch 2, Loss: 0.10586124889047469
+Epoch 3, Loss: 0.0751646591697709
+Epoch 4, Loss: 0.05358244496066186
+Epoch 5, Loss: 0.04559730367450896
+Epoch 6, Loss: 0.044273110027661766
+Epoch 7, Loss: 0.036206570347392206
+Epoch 8, Loss: 0.031514567180962884
+Epoch 9, Loss: 0.027368931064255916
+Epoch 10, Loss: 0.02421529028935642
+Accuracy on the test set: 98.85%
